@@ -1,0 +1,29 @@
+/* pages/login/login.wxss */
+.wrapper{
+    padding: 0 50rpx;
+}
+.logo{
+    width: 250rpx;
+    margin-top: 115rpx;
+}
+.phone-box{
+    margin-top: 150rpx;
+    height: 80rpx;
+    border-bottom: 1px solid #afafaf;
+}
+.bottom-image{
+    width: 20rpx;
+}
+.phone-input{
+    width: 80%;
+}
+.phone-input input{
+    width: 100%;
+    height: 100%;
+}
+.submit{
+    margin-top: 65rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 80rpx;
+}

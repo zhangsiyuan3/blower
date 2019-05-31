@@ -1,0 +1,54 @@
+function timeStamp(str) { //时间戳转换成可以显示的时间
+    var reg = getRegExp('\D', 'g');
+    var date = getDate(+str.replace(reg, ''));
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var mi = date.getMinutes();
+    var s = date.getSeconds();
+    m < 10 && (m = '0' + m);
+    d < 10 && (d = '0' + d);
+    h < 10 && (h = '0' + h);
+    mi < 10 && (mi = '0' + mi);
+    s < 10 && (s = '0' + s);
+    return y + '-' + m + '-' + d;
+}
+function timeStampC(str) { //出场日期
+    var reg = getRegExp('\D', 'g');
+    var date = getDate(+str.replace(reg, ''));
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var mi = date.getMinutes();
+    var s = date.getSeconds();
+    m < 10 && (m = '0' + m);
+    d < 10 && (d = '0' + d);
+    h < 10 && (h = '0' + h);
+    mi < 10 && (mi = '0' + mi);
+    s < 10 && (s = '0' + s);
+    return y + '-' + m;
+}
+function checkType(type) {
+    var str = '';
+    switch (+type) {
+        case 1:
+            str = '低压';
+            break;
+        case 2:
+            str = '中压';
+            break;
+        case 3:
+            str = '高压';
+            break;
+        default:
+            str = '低压';
+    }
+    return str;
+}
+module.exports = {
+    timeStamp: timeStamp,
+    timeStampC: timeStampC,
+    checkType: checkType
+}

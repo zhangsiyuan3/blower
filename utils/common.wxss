@@ -1,0 +1,547 @@
+page {
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei";
+  color: #000;
+  background: #fff;
+}
+
+.border-box {
+  box-sizing: border-box;
+}
+
+.my-btn{
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+.my-btn::after{
+  border-radius: 0;
+  border: none;
+}
+
+/*  隐藏滚动条  */
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+/*  颜色  */
+
+.theme-color {
+  color: #009bca;
+}
+
+.theme-bg {
+  background: #009bca;
+}
+
+.white-color {
+  color: #fff;
+}
+
+.white-bg {
+  background: #fff;
+}
+
+.black-color {
+  color: #000;
+}
+
+.gray-color {
+  color: #888;
+}
+
+/*  width  */
+
+.width-100 {
+  width: 100%;
+}
+
+.width-90 {
+  width: 90%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+/*  width  */
+
+.height-100{
+  height: 100%;
+}
+
+/*  flex  */
+
+.flex {
+  display: flex;
+}
+
+.flex-direction {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.none {
+  display: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/*  文字超出加点  */
+
+.point {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.point-2 {
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.point-3 {
+ display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*  float  */
+
+.float::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.float-l {
+  float: left;
+}
+
+.float-r {
+  float: right;
+}
+
+/*  margin  */
+
+.margin-10 {
+  margin: 10rpx;
+}
+
+.margin-20 {
+  margin: 20rpx;
+}
+
+.margin-30 {
+  margin: 30rpx;
+}
+
+.margin-t-2 {
+  margin-top: 2rpx;
+}
+
+.margin-t-4 {
+  margin-top: 4rpx;
+}
+
+.margin-t-6 {
+  margin-top: 6rpx;
+}
+
+.margin-t-8 {
+  margin-top: 8rpx;
+}
+
+.margin-t-10 {
+  margin-top: 10rpx;
+}
+
+.margin-t-20 {
+  margin-top: 20rpx;
+}
+
+.margin-t-30 {
+  margin-top: 30rpx;
+}
+
+.margin-t-40 {
+  margin-top: 40rpx;
+}
+
+.margin-t-50 {
+  margin-top: 50rpx;
+}
+
+.margin-t-60 {
+  margin-top: 60rpx;
+}
+
+.margin-r-2 {
+  margin-right: 2rpx;
+}
+
+.margin-r-4 {
+  margin-right: 4rpx;
+}
+
+.margin-r-6 {
+  margin-right: 6rpx;
+}
+
+.margin-r-8 {
+  margin-right: 8rpx;
+}
+
+.margin-r-10 {
+  margin-right: 10rpx;
+}
+
+.margin-r-20 {
+  margin-right: 20rpx;
+}
+
+.margin-r-30 {
+  margin-right: 30rpx;
+}
+
+.margin-b-2 {
+  margin-bottom: 2rpx;
+}
+
+.margin-b-4 {
+  margin-bottom: 4rpx;
+}
+
+.margin-b-6 {
+  margin-bottom: 6rpx;
+}
+
+.margin-b-8 {
+  margin-bottom: 8rpx;
+}
+
+.margin-b-10 {
+  margin-bottom: 10rpx;
+}
+
+.margin-b-20 {
+  margin-bottom: 20rpx;
+}
+
+.margin-b-30 {
+  margin-bottom: 30rpx;
+}
+
+.margin-l-2 {
+  margin-left: 2rpx;
+}
+
+.margin-l-4 {
+  margin-left: 4rpx;
+}
+
+.margin-l-6 {
+  margin-left: 6rpx;
+}
+
+.margin-l-8 {
+  margin-left: 8rpx;
+}
+
+.margin-l-10 {
+  margin-left: 10rpx;
+}
+
+.margin-l-20 {
+  margin-left: 20rpx;
+}
+
+.margin-l-30 {
+  margin-left: 30rpx;
+}
+
+/*  padding  */
+
+.padding-10 {
+  padding: 30rpx;
+}
+
+.padding-20 {
+  padding: 30rpx;
+}
+
+.padding-30 {
+  padding: 30rpx;
+}
+
+.padding-t-10 {
+  padding-top: 10rpx;
+}
+
+.padding-t-20 {
+  padding-top: 20rpx;
+}
+
+.padding-t-30 {
+  padding-top: 30rpx;
+}
+
+.padding-r-10 {
+  padding-right: 10rpx;
+}
+
+.padding-r-20 {
+  padding-right: 20rpx;
+}
+
+.padding-r-30 {
+  padding-right: 30rpx;
+}
+
+.padding-b-10 {
+  padding-bottom: 10rpx;
+}
+
+.padding-b-20 {
+  padding-bottom: 20rpx;
+}
+
+.padding-b-30 {
+  padding-bottom: 30rpx;
+}
+
+.padding-l-10 {
+  padding-left: 10rpx;
+}
+
+.padding-l-20 {
+  padding-left: 20rpx;
+}
+
+.padding-l-30 {
+  padding-left: 30rpx;
+}
+
+.padding-tb-10 {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+
+.padding-tb-20 {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.padding-tb-30 {
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+
+.padding-tb-40 {
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+
+.padding-lr-10 {
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+.padding-lr-20 {
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.padding-lr-30 {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.padding-lr-50{
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+}
+
+/*  border  */
+
+.border-1 {
+  border: 1px solid #ebebeb;
+}
+
+.border-2 {
+  border: 2px solid #ebebeb;
+}
+
+.border-t-1 {
+  border-top: 1px solid #ebebeb;
+}
+
+.border-t-2 {
+  border-top: 2px solid #ebebeb;
+}
+
+.border-l-1 {
+  border-left: 1px solid #ebebeb;
+}
+
+.border-l-2 {
+  border-left: 2px solid #ebebeb;
+}
+
+.border-b-1 {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.border-b-2 {
+  border-bottom: 2px solid #ebebeb;
+}
+
+.border-r-1 {
+  border-right: 1px solid #ebebeb;
+}
+
+.border-r-2 {
+  border-right: 2px solid #ebebeb;
+}
+
+/*  字体大小 (16-50) */
+
+.font-16 {
+  font-size: 16rpx;
+}
+
+.font-18 {
+  font-size: 18rpx;
+}
+
+.font-20 {
+  font-size: 20rpx;
+}
+
+.font-22 {
+  font-size: 22rpx;
+}
+
+.font-24 {
+  font-size: 24rpx;
+}
+
+.font-26 {
+  font-size: 26rpx;
+}
+
+.font-28 {
+  font-size: 28rpx;
+}
+
+.font-30 {
+  font-size: 30rpx;
+}
+
+.font-32 {
+  font-size: 32rpx;
+}
+
+.font-34 {
+  font-size: 34rpx;
+}
+
+.font-36 {
+  font-size: 36rpx;
+}
+
+.font-38 {
+  font-size: 38rpx;
+}
+
+.font-40 {
+  font-size: 40rpx;
+}
+
+.font-42 {
+  font-size: 42rpx;
+}
+
+.font-44 {
+  font-size: 44rpx;
+}
+
+.font-46 {
+  font-size: 46rpx;
+}
+
+.font-48 {
+  font-size: 48rpx;
+}
+
+.font-50 {
+  font-size: 50rpx;
+}
+
+.font-weight {
+  font-weight: bold;
+}
+

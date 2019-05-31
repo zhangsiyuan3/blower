@@ -1,0 +1,59 @@
+<!-- pages/infoList/infoList.wxml -->
+<wxs src='../../utils/filter.wxs' module='filter' />
+<view class='header white-bg border-box padding-lr-30 border-b-1 flex align-center justify-between'>
+    <view class="select flex align-center">
+        <picker mode="date" start="{{min}}" end="{{max}}" bindchange="startChange">
+            <view class="flex align-center justify-center border-1 border-box font-26">
+                {{start}}
+            </view>
+        </picker>
+        <view class="middle flex align-center margin-l-10 margin-r-10 font-30">-</view>
+        <picker mode="date" start="{{min}}" end="{{max}}" bindchange="endChange">
+            <view class="flex align-center justify-center border-1 border-box font-26">
+                {{end}}
+            </view>
+        </picker>
+        <input bindinput='input' class="input font-26 border-1 margin-l-10 border-box padding-lr-10" type="text" placeholder="输入关键字" placeholder-style="color: #787878;"/>
+    </view>
+    <view bindtap='getList' class='search theme-bg white-color font-26 flex justify-center align-center'>
+        搜索
+    </view>
+</view>
+<view class='box border-box'>
+    <block wx:for='{{listData}}' wx:key='zfId'>
+        <view class="white-bg border-t-1 border-b-1 margin-b-20">
+            <view bindtap='toCompressorInfoList' data-zfId='{{item.zfId}}' class="border-box padding-lr-30 padding-t-30">
+                <view class="flex justify-between font-30">
+                    <text>{{item.ComPany}}</text>
+                    <text>提交人：{{item.Name}}</text>
+                </view>
+                <view class="flex align-center margin-t-30 margin-b-20">
+                    <view class='flex align-center'>
+                        <image mode="widthFix" src="/images/time.png" class="list-image margin-r-10" />
+                        <text class='font-26'>拜访：{{filter.timeStamp(item.InnerTime)}}</text>
+                    </view>
+                    <view class='person flex align-center'>
+                        <image mode="widthFix" src="/images/person.png" class="list-image margin-r-10" />
+                        <text class='font-26'>客户联系人：{{item.Contact}}</text>
+                    </view>
+                </view>
+                <view class='flex align-center margin-b-20'>
+                    <image mode="widthFix" src="/images/address.png" class="list-image margin-r-10" />
+                    <view class="address-box width-100">
+                        <text class='font-26'>{{item.Address}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="border-t-1 flex justify-end padding-lr-30 padding-tb-20">
+                <view bindtap='toCompressorInfoList' data-zfId='{{item.zfId}}' class="list-btn">
+                    管理压缩机
+                </view>
+                <view bindtap='revise' data-zfId='{{item.zfId}}' class="list-btn margin-l-10">
+                    修改
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<view class='footer-box'></view>
+<view bindtap='toCreateWorkshopInfo' class="footer-btn">创建站房信息</view>

@@ -1,0 +1,40 @@
+<!-- pages/infoList/infoList.wxml -->
+<block wx:if='{{isSuccess}}'>
+    <wxs src="../../utils/filter.wxs" module="filter" />
+    <block wx:for='{{listData}}' wx:key='ysjId'>
+        <view class="white-bg border-t-1 border-b-1 margin-b-20">
+            <view class="border-box padding-lr-30 padding-t-30 padding-b-20">
+                <text class="font-32">序列号：{{item.Num}}</text>
+                <view class='flex align-center margin-t-10'>
+                    <view class="list-item font-28">
+                        <text>业务类型：{{filter.checkType(item.Type)}}</text>
+                    </view>
+                    <view class="list-item font-28">
+                        <text>品牌：{{item.Brand}}</text>
+                    </view>
+                </view>
+                <view class='flex align-center margin-t-10'>
+                    <view class="list-item font-28">
+                        <text>出场日期：{{filter.timeStampC(item.CreateTime)}}</text>
+                    </view>
+                    <view class="list-item font-28">
+                        <text>类型：{{item.LqType === 1 ? '水冷' : '风冷'}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="border-t-1 flex justify-end padding-lr-30 padding-tb-20">
+                <view bindtap='copy' data-ysjId='{{item.ysjId}}' class="list-btn">复制创建</view>
+                <view bindtap='delete' data-index='{{index}}' class="list-btn margin-l-10">删除</view>
+                <view bindtap='revise' data-ysjId='{{item.ysjId}}' class="list-btn margin-l-10">
+                    修改
+                </view>
+            </view>
+        </view>
+    </block>
+    <view bindtap='create' class="add-box border-t-1 border-b-1 white-bg theme-color margin-b-20 font-30 flex justify-center align-center">
+        <image mode="widthFix" src="/images/add.png" class="add-image margin-r-10" />
+        <text>新增压缩机信息</text>
+    </view>
+    <view class='footer-box margin-t-20'></view>
+    <view bindtap='backInfoList' class="footer-btn">完成</view>
+</block>

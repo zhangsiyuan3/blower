@@ -1,0 +1,248 @@
+<form wx:if='{{ysjId !== -1}}' bindsubmit='submit'>
+    <view class="title list">压缩机信息</view>
+    <view class="list">
+        <view class="list-title">序号</view>
+        <view class="list-content">
+            <view class="absolute">{{Num}}</view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">业务类型</view>
+        <view class="list-content">
+            <view class="absolute select-box">
+                <block wx:for='{{pressureList}}' wx:key='name'>
+                    <view bindtap='changePressure' data-index='{{index}}' class="select-list">
+                        <image hidden='{{index !== pressureType}}' mode="widthFix" src="/images/select.png" class="select-image" />
+                        <image hidden='{{index === pressureType}}' mode="widthFix" src="/images/select-no.png" class="select-image" />
+                        <view class="flex flex-direction justify-center align-center">
+                            <text>{{item.name}}</text>
+                            <text>{{item.spec}}</text>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">压缩技术</view>
+        <view class="list-content">
+            <view class="absolute">
+                <picker wx:if='{{skillList[skill].ys !== 0}}' bindchange='changeSkill' mode="selector" range="{{skillList}}" range-key="TypeName" class="list-picker">
+                    <view class="picker-view">
+                        <text>{{skillList[skill].TypeName || '请选择压缩技术'}}</text>
+                        <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                    </view>
+                </picker>
+                <block wx:else>
+                    <view class='other-input'>
+                        <input bindinput='inputSkill' value='{{yasuoOther}}' type="text" class="list-input" placeholder='请填写压缩技术' placeholder-class="black-color" />
+                    </view>
+                    <picker bindchange='changeSkill' mode="selector" range="{{skillList}}" range-key="TypeName" class="list-picker other-picker">
+                        <view class="picker-view">
+                            <text></text>
+                            <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                        </view>
+                    </picker>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">品牌</view>
+        <view class="list-content">
+            <view class="absolute">
+                <picker wx:if='{{!isBrandInput}}' bindchange='changeBrand' mode="selector" range="{{brandList}}" class="list-picker">
+                    <view class="picker-view">
+                        <text>{{Brand || '请选择品牌'}}</text>
+                        <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                    </view>
+                </picker>
+                <block wx:else>
+                    <view class='other-input'>
+                        <input bindinput='inputBrand' value='{{Brand}}' type="text" class="list-input" placeholder='请输入品牌' placeholder-class="black-color" />
+                    </view>
+                    <picker bindchange='changeBrand' mode="selector" range="{{brandList}}" class="list-picker other-picker">
+                        <view class="picker-view">
+                            <text></text>
+                            <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                        </view>
+                    </picker>
+                </block>
+                <!-- <input name='Brand' value='{{Brand}}' class='list-input' type="text" placeholder='请输入品牌' placeholder-class="black-color" /> -->
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">出厂日期</view>
+        <view class="list-content">
+            <view class="absolute">
+                <picker class="list-picker" mode="multiSelector" bindchange='changeDate' value="{{timeIndex}}" range="{{timeList}}">
+                    <view class="picker-view">
+                        <text>{{CreateTime || '请选择出场日期'}}</text>
+                        <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">价格(rmb)</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='Price' value='{{Price}}' class='list-input' type="digit" placeholder='请输入价格（含税）' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">型号</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='Number' focus="{{focus.Number}}" value='{{Number}}' class='list-input' type="text" placeholder='请输入型号' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">冷却形式</view>
+        <view class="list-content">
+            <view class="absolute select-box">
+                <block wx:for='{{cdList}}' wx:key='*this'>
+                    <view bindtap='changeCd' data-index='{{index}}' class="select-list">
+                        <image hidden='{{index !== cd}}' mode="widthFix" src="/images/select.png" class="select-image" />
+                        <image hidden='{{index === cd}}' mode="widthFix" src="/images/select-no.png" class="select-image" />
+                        <text>{{item}}</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">电机功率</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='kw' focus="{{focus.kw}}" value="{{kw}}" class='list-input' type="text" placeholder='请输入电机功率(kw)' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">拍照上传</view>
+        <view class="list-content">
+            <view class="absolute justify-end">
+                <image hidden='{{imageList.length >= imageMaxNum}}' bindtap='addImage' mode="aspectFit" src="/images/addImage.png" class="add-image margin-r-20" />
+                <block wx:for='{{imageList}}' wx:key='*this'>
+                    <view bindtap='deleteImage' data-index='{{index}}' class="add-image image-box margin-r-20">
+                        <image mode="widthFix" src="/images/delete.png" class="delete-image" />
+                        <image mode="aspectFit" src="{{uploadUrl + item}}" class="add-image" />
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">控制模式</view>
+        <view class="list-content">
+            <view class="absolute">
+                <picker bindchange='changeControlModel' mode="selector" range="{{controlModelList}}" class="list-picker">
+                    <view class="picker-view">
+                        <text>{{controlModelList[controlModel] || '请选择'}}</text>
+                        <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">运行时间</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='RunTime' value='{{RunTime}}' class='list-input' type="digit" placeholder='请输入运行时间(h)' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">加载时间</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='LoadTime' value='{{LoadTime}}' class='list-input' type="digit" placeholder='请输入加载时间(h)' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">铭牌额定压力</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='yali' focus="{{focus.yali}}" value='{{yali}}' class='list-input' type="text" placeholder='请输入铭牌额定压力(barg)' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">排气量</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='paiqiliang' focus="{{focus.paiqiliang}}" value='{{paiqiliang}}' class='list-input' type="text" placeholder='请输入排气量(m3/min)' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">实际工作压力</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='yaliset' focus="{{focus.yaliset}}" value='{{yaliset}}' class='list-input' type="text" placeholder='请输入实际工作压力【bar(g)】' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">
+            <text>运行压力</text>
+            <text class="margin-t-4">波动情况</text>
+        </view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='detail' value='{{detail}}' class='list-input' type="text" placeholder='请输入运行压力波动情况【bar(g)】' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">即时状态</view>
+        <view class="list-content">
+            <view class="absolute">
+                <picker bindchange='changeStatus' mode="selector" range='{{statusList}}' class="list-picker">
+                    <view class="picker-view">
+                        <text>{{statusList[status] || '请选择状态'}}</text>
+                        <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">报警信息</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='info' value='{{info}}' class='list-input' type="text" placeholder='请输入报警信息' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">其他信息</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='other' value='{{other}}' class='list-input' type="text" placeholder='如：三用一备' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <!-- <view class="list">
+        <view class="list-title">其他信息</view>
+        <view class="list-content">
+            <view class="absolute">
+                <picker bindchange='changeOther' mode="selector" range='{{otherList}}' class="list-picker">
+                    <view class="picker-view">
+                        <text>{{otherList[other]}}</text>
+                        <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view> -->
+    <view class='footer-box margin-t-20'></view>
+    <button form-type='submit' class="footer-btn my-btn">{{ysjId ? '提交修改' : '提交'}}</button>
+</form>

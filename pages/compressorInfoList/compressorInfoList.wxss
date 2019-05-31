@@ -1,0 +1,14 @@
+/* pages/infoList/infoList.wxss */
+page{
+    background: #f4f7f9;
+}
+.list-item{
+    width: 50%;
+}
+.add-box{
+    height: 100rpx;
+}
+.add-image{
+    width: 30rpx;
+    line-height: 32rpx;
+}

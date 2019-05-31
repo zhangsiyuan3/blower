@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/infoList/infoList",
+    "pages/compressorInfoList/compressorInfoList",
+    "pages/createCompressorInfo/createCompressorInfo",
+    "pages/createWorkshopInfo/createWorkshopInfo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "鼓风机现场站房信息采集",
+    "navigationBarTextStyle": "white"
+  },
+  "permission": {
+		"scope.userLocation": {
+			"desc": "小程序获取您的位置，用于更好的为您提供服务"
+		}
+	}
+}

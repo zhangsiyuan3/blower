@@ -1,0 +1,14 @@
+<!-- pages/login/login.wxml -->
+<view class='wrapper border-box flex flex-direction align-center'>
+    <image mode="widthFix" src="/images/logo.png" class="logo" />
+    <view class='phone-box font-30 flex justify-between width-100 border-box'>
+        <view class="phone-area flex align-center">
+            <text>+86</text>
+            <image mode="widthFix" src="/images/bottom.png" class="bottom-image margin-l-20" />
+        </view>
+        <view class="phone-input">
+        <input bindinput="inputPhone" type="number" maxlength="11" placeholder="请输入11位手机号" />
+        </view>
+    </view>
+    <button bindtap='login' class="submit my-btn theme-bg white-color width-100 font-34">提交绑定</button>
+</view>

@@ -1,0 +1,45 @@
+/* pages/infoList/infoList.wxss */
+page{
+    background: #f4f7f9;
+}
+.header{
+    width: 100%;
+    height: 90rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.select{
+    line-height: 26rpx;
+}
+.middle{
+    height: 60rpx;
+}
+picker view{
+    height: 60rpx;
+    width: 170rpx;
+    color: #787878;
+}
+.input{
+    height: 60rpx;
+    width: 190rpx;
+    color: #787878;
+}
+.search{
+    height: 60rpx;
+    width: 100rpx;
+    border-radius: 6rpx;
+}
+.box{
+    padding-top: 110rpx;
+}
+.person{
+    margin-left: 60rpx;
+}
+.list-image{
+    width: 30rpx;
+    line-height: 28rpx;
+}
+.address-box{
+    line-height: 28rpx;
+}

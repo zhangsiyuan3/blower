@@ -1,0 +1,30 @@
+/**app.wxss**/
+@import '/utils/common.wxss';
+
+.list-btn{
+    font-size: 22rpx;
+    color: #009bca;
+    border: 1px solid #009bca;
+    box-sizing: border-box;
+    padding: 6rpx 16rpx;
+    border-radius: 6rpx;
+}
+.footer-btn{
+    width: 100%;
+    height: 80rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    line-height: 32rpx;
+    z-index: 100;
+    background: #009bca;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32rpx;
+}
+.footer-box{
+    box-sizing: border-box;
+    height: 80rpx;
+}

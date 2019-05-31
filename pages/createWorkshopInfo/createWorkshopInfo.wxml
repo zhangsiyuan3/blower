@@ -1,0 +1,265 @@
+<form wx:if='{{zfId !== -1}}' bindsubmit='submit'>
+    <view class="list">
+        <view class="list-title">公司名称</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='ComPany' focus="{{focus.ComPany}}" value='{{ComPany}}' class='list-input' type="text" placeholder='请输入公司名称' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">拜访日期</view>
+        <view class="list-content">
+            <view class="absolute">
+                <picker bindchange='changeDate' class="list-picker" mode="date" start="{{start}}" end="{{end}}">
+                    <view class="picker-view">
+                        <text>{{InnerTime || '请选择日期'}}</text>
+                        <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                    </view>
+                </picker>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">地址</view>
+        <view class="list-content">
+            <view class="absolute address">
+                <input name='Address' focus="{{focus.Address}}" value='{{Address}}' class='list-input' type="text" placeholder='请输入地址' placeholder-class="black-color" />
+                <view bindtap='getAddress' class="list-btn">获取地址</view>
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">客户联系人</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='Contact' focus="{{focus.Contact}}" value='{{Contact}}' class='list-input' type="text" placeholder='请输入客户联系人' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">联系电话</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='ContactTell' focus='{{focus.ContactTell}}' value='{{ContactTell}}' class='list-input' type="text" placeholder='请输入联系电话' maxlength="11" placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <!-- <view class="list">
+        <view class="list-title">销售</view>
+        <view class="list-content">
+            <view class="absolute">{{Sell.Name}}</view>
+        </view>
+    </view> -->
+    <view class="title list">压缩空气的用途</view>
+    <view class="list">
+        <view class="list-title">应用工艺</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='yygy' focus="{{focus.yygy}}" value='{{yygy}}' class='list-input' type="text" placeholder='请输入应用工艺' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">
+            <text>用气终端</text>
+            <text class="margin-t-4">温度要求</text>
+        </view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='wdyq' focus="{{focus.wdyq}}" value='{{wdyq}}' class='list-input' type="text" placeholder='请输入用气终端温度要求' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="list">
+        <view class="list-title">其他</view>
+        <view class="list-content">
+            <view class="absolute">
+                <input name='other' value='{{other}}' class='list-input' type="text" placeholder='请输入' placeholder-class="black-color" />
+            </view>
+        </view>
+    </view>
+    <view class="title list">
+        <text>空气品质</text>
+        <text bindtap='changeMust' data-keyName='isAir' class="theme-color">
+            {{isAir ? '收起': '展开'}}
+        </text>
+    </view>
+    <view hidden="{{!isAir}}">
+        <view class="list">
+            <view class="list-title">含水量</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='watercontent' value='{{watercontent}}' class='list-input' type="text" placeholder='请输入含水量' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">油含量</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='oilcontent' value='{{oilcontent}}' class='list-input' type="text" placeholder='请输入油含量' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">含尘量</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='dustcontent' value='{{dustcontent}}' class='list-input' type="text" placeholder='请输入含尘量' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">主管路压力</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='zglyl' value='{{zglyl}}' class='list-input' type="text" placeholder='请输入' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="title list">
+        <text>污水处理</text>
+        <text bindtap='changeMust' data-keyName='isSewage' class="theme-color">
+            {{isSewage ? '收起': '展开'}}
+        </text>
+    </view>
+    <view hidden="{{!isSewage}}">
+        <view class="list">
+            <view class="list-title">污水来源</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='Sewagesource' value='{{Sewagesource}}' class='list-input' type="text" placeholder='请输入污水来源' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">处理工艺</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='Treatmentprocess' value='{{Treatmentprocess}}' class='list-input' type="text" placeholder='请输入处理工艺' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">日处理量</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='TreatmentNum' value='{{TreatmentNum}}' class='list-input' type="text" placeholder='请输入日处理量' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">其他</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='SewageOther' value='{{SewageOther}}' class='list-input' type="text" placeholder='请输入' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="title list">
+        <text>用气量（m3/min）</text>
+        <text bindtap='changeMust' data-keyName='isGas' class="theme-color">
+            {{isGas ? '收起': '展开'}}
+        </text>
+    </view>
+    <view hidden="{{!isGas}}">
+        <view class="list">
+            <view class="list-title">最大</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='maxyql' value='{{maxyql}}' class='list-input' type="text" placeholder='请输入最大用气量' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">最小</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='minyql' value='{{minyql}}' class='list-input' type="text" placeholder='请输入最小用气量' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">平均</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='avgyql' value='{{avgyql}}' class='list-input' type="text" placeholder='请输入平均用气量' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">电价</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='electrovalency' value='{{electrovalency}}' class='list-input' type="text" placeholder='请输入电价' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">电压</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='voltage' value='{{voltage}}' class='list-input' type="text" placeholder='请输入电压' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">
+                <text>年度运行</text>
+                <text class="margin-t-4">时间</text>
+            </view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='yearrundate' value='{{yearrundate}}' class='list-input' type="text" placeholder='请输入年度运行时间' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">有无集中控制</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <picker bindchange='changeController' class="list-picker" mode="selector" range='{{controllerListData}}' value="{{controllerIndex}}">
+                        <view class="picker-view">
+                            <text>{{Controller}}</text>
+                            <image mode="widthFix" src="/images/right.png" class="picker-image" />
+                        </view>
+                    </picker>
+                </view>
+                <!-- <view class="absolute">
+                    <input name='Controller' value='{{Controller}}' class='list-input' type="text" placeholder='请输入主控制器' placeholder-class="black-color" />
+                </view> -->
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-title">储气罐</view>
+            <view class="list-content">
+                <view class="absolute">
+                    <input name='Chuqiguan' value='{{Chuqiguan}}' class='list-input' type="text" placeholder='请输入体积（m3）' placeholder-class="black-color" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="title list">
+        <text>系统简要流程图及机房布置概况</text>
+        <text bindtap='changeMust' data-keyName='isSurvey' class="theme-color">
+            {{isSurvey ? '收起': '展开'}}
+        </text>
+    </view>
+    <view hidden="{{!isSurvey}}">
+        <textarea name='Detail' value='{{Detail}}' class='textarea border-box padding-30 white-bg font-26' placeholder='请输入' placeholder-class="font-26 black-color"></textarea>
+        <view class="add-box border-t-1 border-box flex align-center padding-lr-30 white-bg">
+            <image hidden='{{imageList.length >= imageMaxNum}}' bindtap='addImage' mode="aspectFit" src="/images/addImage.png" class="add-image margin-r-20" />
+            <block wx:for='{{imageList}}' wx:key='*this'>
+                <view bindtap='deleteImage' data-index='{{index}}' class="add-image image-box margin-r-20">
+                    <image mode="widthFix" src="/images/delete.png" class="delete-image" />
+                    <image mode="aspectFit" src="{{uploadUrl + item}}" class="add-image" />
+                </view>
+            </block>
+        </view>
+    </view>
+    <view class='footer-box margin-t-20'></view>
+    <button form-type='submit' class="footer-btn my-btn">{{zfId > 0 ? '提交修改' : '提交'}}</button>
+</form>
